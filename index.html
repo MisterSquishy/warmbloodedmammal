@@ -32,7 +32,11 @@
       object-fit: cover;
       display: block;
       margin-bottom: 2rem;
+      opacity: 0;
+      transition: opacity 0.6s ease;
     }
+
+    .photo.loaded { opacity: 1; }
 
     h1 {
       font-family: 'Lora', Georgia, serif;
@@ -74,5 +78,10 @@
   <p class="ep">New EP Coming Soon</p>
   <a href="mailto:warmbloodedband@gmail.com" class="email">warmbloodedband@gmail.com</a>
 
+  <script>
+    const img = document.querySelector('.photo');
+    if (img.complete) img.classList.add('loaded');
+    else img.addEventListener('load', () => img.classList.add('loaded'));
+  </script>
 </body>
 </html>
